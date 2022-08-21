@@ -1,0 +1,394 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Sunday, 21 August 2022 3:31:32 pm
+   Source : C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\
+     Dest : C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files_backup\
+
+    Files : *.*
+	    
+  Options : *.* /X /FP /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /Z /MON:1 /MOT:1 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	  New Dir          2	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\
+	    New File  		     112	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\.gitignore
+100%  
+	    New File  		   22823	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\FileModifier.jar
+ 93%  
+100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         1         1         0         0         0         0
+   Files :         2         2         0         0         0         0
+   Bytes :    22.3 k    22.3 k         0         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :             7645000 Bytes/sec.
+   Speed :             437.450 MegaBytes/min.
+   Ended : Sunday, 21 August 2022 3:31:32 pm
+
+
+  Monitor : Waiting for 1 minutes and 1 changes...
+
+   0 mins : 0 changes.
+   1 mins : 51 changes.
+
+------------------------------------------------------------------------------
+
+  Started : Sunday, 21 August 2022 3:32:32 pm
+   Source : C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\
+     Dest : C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files_backup\
+
+    Files : *.*
+	    
+  Options : *.* /X /FP /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /Z /MON:1 /MOT:1 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	                   2	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\
+	  New Dir          2	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\accounting\
+	    New File  		       7	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\accounting\data_6
+100%  
+	    New File  		      28	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\accounting\doc_8
+100%  
+	  New Dir          2	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\logistics\
+	    New File  		      49	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\logistics\doc_0
+100%  
+	    New File  		      43	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\logistics\doc_7
+100%  
+	  New Dir          3	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\production\
+	    New File  		      44	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\production\data_0
+100%  
+	    New File  		       6	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\production\data_6
+100%  
+	    New File  		      28	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\production\doc_1
+100%  
+	  New Dir          2	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project2\
+	    New File  		      48	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project2\doc_1
+100%  
+	    New File  		      10	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project2\doc_7
+100%  
+	  New Dir          1	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\sales\
+	    New File  		      25	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\sales\log_0
+100%  
+	  New Dir          1	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\warehouse\
+	    New File  		      38	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\warehouse\doc_4
+100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         7         6         1         0         0         0
+   Files :        13        11         2         0         0         0
+   Bytes :    22.7 k       326    22.3 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :               23285 Bytes/sec.
+   Speed :               1.332 MegaBytes/min.
+   Ended : Sunday, 21 August 2022 3:32:32 pm
+
+
+  Monitor : Waiting for 1 minutes and 1 changes...
+
+   0 mins : 0 changes.
+   1 mins : 65 changes.
+
+------------------------------------------------------------------------------
+
+  Started : Sunday, 21 August 2022 3:33:32 pm
+   Source : C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\
+     Dest : C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files_backup\
+
+    Files : *.*
+	    
+  Options : *.* /X /FP /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /Z /MON:1 /MOT:1 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	                   2	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\
+	                   2	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\accounting\
+	                   2	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\logistics\
+	  *EXTRA File 		      43	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files_backup\logistics\doc_7
+	    New File  		       9	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\logistics\doc_5
+100%  
+	                   6	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\production\
+	    New File  		      18	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\production\data_5
+100%  
+	    New File  		       3	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\production\doc_8
+100%  
+	    New File  		      46	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\production\log_1
+100%  
+	  New Dir          4	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project1\
+	    New File  		      15	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project1\data_6
+100%  
+	    New File  		      39	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project1\data_7
+100%  
+	    New File  		      44	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project1\doc_1
+100%  
+	    New File  		      45	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project1\log_6
+100%  
+	                   5	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project2\
+	    New File  		      37	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project2\data_3
+100%  
+	    New File  		      36	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project2\data_5
+100%  
+	    New File  		      27	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project2\log_1
+100%  
+	                   4	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\sales\
+	    New File  		      31	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\sales\data_3
+100%  
+	    New File  		       1	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\sales\doc_1
+100%  
+	    New File  		      13	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\sales\doc_6
+100%  
+	                   1	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\warehouse\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         8         1         7         0         0         0
+   Files :        26        14        12         0         0         1
+   Bytes :    23.0 k       364    22.6 k         0         0        43
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :               24266 Bytes/sec.
+   Speed :               1.388 MegaBytes/min.
+   Ended : Sunday, 21 August 2022 3:33:32 pm
+
+
+  Monitor : Waiting for 1 minutes and 1 changes...
+
+   0 mins : 0 changes.
+   1 mins : 39 changes.
+
+------------------------------------------------------------------------------
+
+  Started : Sunday, 21 August 2022 3:34:32 pm
+   Source : C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\
+     Dest : C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files_backup\
+
+    Files : *.*
+	    
+  Options : *.* /X /FP /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /Z /MON:1 /MOT:1 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	                   2	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\
+	                   3	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\accounting\
+	    New File  		      39	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\accounting\data_2
+100%  
+	                   1	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\logistics\
+	  *EXTRA File 		      49	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files_backup\logistics\doc_0
+	                   9	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\production\
+	    New File  		      26	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\production\data_8
+100%  
+	    New File  		      30	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\production\log_7
+100%  
+	    New File  		      92	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\production\log_8
+100%  
+	                   6	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project1\
+	    New File  		      23	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project1\data_8
+100%  
+	    New File  		      29	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project1\log_0
+100%  
+	                   6	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project2\
+	    New File  		      44	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project2\data_6
+100%  
+	                   5	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\sales\
+	    New File  		      19	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\sales\data_5
+100%  
+	                   2	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\warehouse\
+	    New File  		      40	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\warehouse\doc_5
+100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         8         0         8         0         0         0
+   Files :        34         9        25         0         0         1
+   Bytes :    23.3 k       342    22.9 k         0         0        49
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :               42750 Bytes/sec.
+   Speed :               2.446 MegaBytes/min.
+   Ended : Sunday, 21 August 2022 3:34:32 pm
+
+
+  Monitor : Waiting for 1 minutes and 1 changes...
+
+   0 mins : 0 changes.
+   1 mins : 46 changes.
+
+------------------------------------------------------------------------------
+
+  Started : Sunday, 21 August 2022 3:35:32 pm
+   Source : C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\
+     Dest : C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files_backup\
+
+    Files : *.*
+	    
+  Options : *.* /X /FP /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /Z /MON:1 /MOT:1 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	                   2	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\
+	                   5	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\accounting\
+	    New File  		       5	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\accounting\data_7
+100%  
+	    New File  		       8	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\accounting\log_6
+100%  
+	                   3	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\logistics\
+	    New File  		      19	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\logistics\data_7
+100%  
+	    New File  		      48	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\logistics\log_3
+100%  
+	                  11	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\production\
+	    New File  		       9	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\production\data_3
+100%  
+	    New File  		       1	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\production\log_5
+100%  
+	                   7	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project1\
+	    New File  		       4	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project1\data_0
+100%  
+	    Newer     		      61	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project1\log_6
+100%  
+	                   7	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project2\
+	  *EXTRA File 		      36	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files_backup\project2\data_5
+	    New File  		      57	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project2\data_0
+100%  
+	    New File  		      36	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project2\doc_6
+100%  
+	                   6	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\sales\
+	    New File  		      36	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\sales\data_8
+100%  
+	    Newer     		      41	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\sales\log_0
+100%  
+	                   2	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\warehouse\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         8         0         8         0         0         0
+   Files :        43        12        31         0         0         1
+   Bytes :    23.5 k       325    23.2 k         0         0        36
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :               27083 Bytes/sec.
+   Speed :               1.549 MegaBytes/min.
+   Ended : Sunday, 21 August 2022 3:35:32 pm
+
+
+  Monitor : Waiting for 1 minutes and 1 changes...
+
+   0 mins : 0 changes.
+   1 mins : 41 changes.
+
+------------------------------------------------------------------------------
+
+  Started : Sunday, 21 August 2022 3:36:32 pm
+   Source : C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\
+     Dest : C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files_backup\
+
+    Files : *.*
+	    
+  Options : *.* /X /FP /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /Z /MON:1 /MOT:1 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	                   2	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\
+	                   8	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\accounting\
+	    New File  		       7	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\accounting\doc_4
+100%  
+	    New File  		      31	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\accounting\doc_7
+100%  
+	    New File  		      23	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\accounting\log_4
+100%  
+	                   5	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\logistics\
+	    New File  		      13	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\logistics\data_3
+100%  
+	    New File  		      21	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\logistics\log_6
+100%  
+	                  11	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\production\
+	  *EXTRA File 		       9	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files_backup\production\data_3
+	    New File  		      10	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\production\doc_7
+100%  
+	                   7	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project1\
+	    Newer     		      55	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project1\data_8
+100%  
+	                   8	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project2\
+	    New File  		      15	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project2\log_6
+100%  
+	                   6	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\sales\
+	    Newer     		      16	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\sales\doc_6
+100%  
+	                   1	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\warehouse\
+	  *EXTRA File 		      38	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files_backup\warehouse\doc_4
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         8         0         8         0         0         0
+   Files :        48         9        39         0         0         2
+   Bytes :    23.6 k       191    23.4 k         0         0        47
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :               21222 Bytes/sec.
+   Speed :               1.214 MegaBytes/min.
+   Ended : Sunday, 21 August 2022 3:36:32 pm
+
+
+  Monitor : Waiting for 1 minutes and 1 changes...
+
+   0 mins : 0 changes.
+   1 mins : 7 changes.
+
+------------------------------------------------------------------------------
+
+  Started : Sunday, 21 August 2022 3:37:32 pm
+   Source : C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\
+     Dest : C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files_backup\
+
+    Files : *.*
+	    
+  Options : *.* /X /FP /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /Z /MON:1 /MOT:1 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	                   2	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\
+	                   8	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\accounting\
+	                   5	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\logistics\
+	                  11	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\production\
+	                   7	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project1\
+	                   7	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\project2\
+	  *EXTRA File 		      44	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files_backup\project2\data_6
+	                   6	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\sales\
+	                   2	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\warehouse\
+	    New File  		      20	C:\Users\eki\source\id609-powershell-script\ID609_OE1\Files\warehouse\log_6
+100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         8         0         8         0         0         0
+   Files :        48         1        47         0         0         1
+   Bytes :    23.6 k        20    23.5 k         0         0        44
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :               20000 Bytes/sec.
+   Speed :               1.144 MegaBytes/min.
+   Ended : Sunday, 21 August 2022 3:37:32 pm
+
+
+  Monitor : Waiting for 1 minutes and 1 changes...
