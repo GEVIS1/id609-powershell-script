@@ -2,5 +2,8 @@
 ID609_OE1/Files/*
 !ID609_OE1/Files/FileModifier.jar
 
+# Ignore log folder
+ID609_OE1/logs
+
 # Ignore the default backup folder
 ID609_OE1/Files_backup/
