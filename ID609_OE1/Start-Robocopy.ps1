@@ -1,3 +1,6 @@
+# This script runs indefinitely and starts up robocopy every minute to copy from $Source to $Destination
+# It is a dependency of the Start-RobocopyReport script
+
 function Start-Robocopy {
 param(
   [Parameter(Mandatory=$true,
@@ -57,11 +60,13 @@ if (-NOT (Test-Path -Path $logdir)) {
 }
 
 # Modify these variables to change the default behaviour
-$Source = Files
-$Destination = Files_backup
+# Set the source directory to monitor
+$Source = "Files"
+# Set the destination directory for the backup files. This could be an SMB share
+$Destination = "Files_backup"
 
 # Set window title
 $host.ui.RawUI.WindowTitle = "Robocopy: $Source -> $Destination"
 
 # Start function
-Start-Robocopy -Source $Source -Destination $Destination
+Start-Robocopy -Source "$Source" -Destination "$Destination"
