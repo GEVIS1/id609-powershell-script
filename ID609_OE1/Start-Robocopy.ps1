@@ -56,4 +56,12 @@ if (-NOT (Test-Path -Path $logdir)) {
     }
 }
 
-Start-Robocopy -Source Files -Destination Files_backup
+# Modify these variables to change the default behaviour
+$Source = Files
+$Destination = Files_backup
+
+# Set window title
+$host.ui.RawUI.WindowTitle = "Robocopy: $Source -> $Destination"
+
+# Start function
+Start-Robocopy -Source $Source -Destination $Destination
