@@ -1,3 +1,6 @@
+# This script runs indefinitely and starts up robocopy every minute to copy from $Source to $Destination
+# It is a dependency of the Start-RobocopyReport script
+
 function Start-Robocopy {
 param(
   [Parameter(Mandatory=$true,
