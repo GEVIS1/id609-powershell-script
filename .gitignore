@@ -7,3 +7,7 @@ ID609_OE1/logs/*
 
 # Ignore the default backup folder
 ID609_OE1/Files_backup/
+
+# Don't ignore the logs and files folders
+!ID609_OE1/logs/
+!ID609_OE1/Files/
