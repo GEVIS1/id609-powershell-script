@@ -1,0 +1,4 @@
+1.
+This script sends an e-mail
+notification upon any addition or deletion of files (not for modified files).
+Make sure we don't send modified files in emails.
