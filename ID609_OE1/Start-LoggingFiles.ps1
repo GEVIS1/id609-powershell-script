@@ -1,3 +1,11 @@
+<#  
+    Make sure our path is set to the root of the script,
+    so paths to modules and log files are correct.
+#>
+if ((Get-Location) -Ne $PSScriptRoot) {
+    Set-Location $PSScriptRoot
+}
+
 Import-Module ".\src\ParseLog.psd1" -Force
 #Import-Module ".\src\EventLog.psd1"
 #Import-Module ".\src\SendEmail.psd1"
