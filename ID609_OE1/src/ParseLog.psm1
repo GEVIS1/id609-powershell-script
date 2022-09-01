@@ -55,9 +55,9 @@ function Get-LogData {
     
     $data = Get-Content -Path $LogFile -Raw
 
-    if ($StartTime -NE $null) {
+    if (!$StartTime) {
         Write-Host $data
-        Write-Host "No $StartTime given!"
+        Write-Host "No start time given!"
     }
     else {
         Write-Host $data
