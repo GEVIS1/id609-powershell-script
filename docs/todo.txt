@@ -2,3 +2,6 @@
 This script sends an e-mail
 notification upon any addition or deletion of files (not for modified files).
 Make sure we don't send modified files in emails.
+
+## References:
+https://evotec.xyz/sending-information-to-event-log-with-extended-fields-using-powershell/#:~:text=As%20you%20may%20be%20aware%2C%20PowerShell%20allows%20you,%22MyApp%20added%20a%20user-requested%20feature%20to%20the%20display.%22
