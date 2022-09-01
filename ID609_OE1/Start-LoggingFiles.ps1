@@ -7,7 +7,7 @@ if ((Get-Location) -Ne $PSScriptRoot) {
 }
 
 Import-Module ".\src\ParseLog.psd1" -Force
-#Import-Module ".\src\EventLog.psd1"
+Import-Module ".\src\EventLog.psd1" -Force
 #Import-Module ".\src\SendEmail.psd1"
 
 # Configuration variables
@@ -16,6 +16,12 @@ $sleep = 60 # How many seconds between each loop
 $logdir = ".\logs\"
 $logfile = "log-$(Get-Date -Format "yyyy-MM-dd").txt"
 
+# Create Event log source if it does not exist
+if (!(Test-EventLogSource)) {
+    Write-Host "Event log source not found. Creating."
+    New-EventLogSource
+}
+
 if (!(Test-Path -Path "$logdir$logfile")) {
     throw [System.IO.FileNotFoundException]"Could not find logfile. Is Robocopy running?"
     # TODO: Write to event log
@@ -23,6 +29,7 @@ if (!(Test-Path -Path "$logdir$logfile")) {
 
 # This program is meant to run indefinitely, so wrap everything in a for loop that never ends.
 for ($ever) {
-    Get-LogData -Logfile "$logdir$logfile"
-    Start-Sleep -Seconds 1
+    Get-LogData -Logfile "$logdir$logfile" -StartTime (Get-Date)
+    New-EventLogMessage -Type Information -Message "Wrote some stuff to the event log!"
+    Start-Sleep -Seconds 60
 }
