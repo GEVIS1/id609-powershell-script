@@ -10,6 +10,7 @@ Import-Module ".\src\ParseLog.psd1" -Force
 Import-Module ".\src\EventLog.psd1" -Force
 #Import-Module ".\src\SendEmail.psd1"
 
+
 # Configuration variables
 $ever = ";;"
 $sleep = 60 # How many seconds between each loop
