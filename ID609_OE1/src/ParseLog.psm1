@@ -53,7 +53,7 @@ function Get-LogData {
         $StartTime
     )
     
-    $data = Get-Item -Path $LogFile
+    $data = Get-Content -Path $LogFile -Raw
 
     if ($StartTime -NE $null) {
         Write-Host $data
