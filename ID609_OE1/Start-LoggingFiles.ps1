@@ -16,6 +16,11 @@ $sleep = 60 # How many seconds between each loop
 $logdir = ".\logs\"
 $logfile = "log-$(Get-Date -Format "yyyy-MM-dd").txt"
 
+if (!(Test-Path -Path "$logdir$logfile")) {
+    throw [System.IO.FileNotFoundException]"Could not find logfile. Is Robocopy running?"
+    # TODO: Write to event log
+}
+
 # This program is meant to run indefinitely, so wrap everything in a for loop that never ends.
 for ($ever) {
     Get-LogData -Logfile "$logdir$logfile"
