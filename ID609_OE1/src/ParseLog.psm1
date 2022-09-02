@@ -3,14 +3,14 @@ function Get-LogData {
     param (
         # Path to the log file
         [Parameter(
-            Mandatory=$true,
-            Position=0)]
+            Mandatory = $true,
+            Position = 0)]
         [String]
         $LogFile,
         # The time to report logdata from. If empty return entire file.
         [Parameter(
-            Mandatory=$false,
-            Position=1)]
+            Mandatory = $false,
+            Position = 1)]
         [DateTime]
         $StartTime
     )
