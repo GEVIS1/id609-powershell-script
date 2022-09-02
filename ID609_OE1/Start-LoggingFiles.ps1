@@ -46,3 +46,4 @@ for ($ever) {
     Get-LogData -Logfile "$logdir$logfile" -StartTime (Get-Date)
     New-EventLogMessage -Type Information -Message "Wrote some stuff to the event log!"
     Start-Sleep -Seconds $sleepseconds
+}
