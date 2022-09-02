@@ -38,6 +38,9 @@ if (!(Test-Path -Path "$logdir$logfile")) {
     # TODO: Write to event log
 }
 
+# Set window title
+$host.ui.RawUI.WindowTitle = "File logger script"
+
 # This program is meant to run indefinitely, so wrap everything in a for loop that never ends.
 for ($ever) {
     Get-LogData -Logfile "$logdir$logfile" -StartTime (Get-Date)
