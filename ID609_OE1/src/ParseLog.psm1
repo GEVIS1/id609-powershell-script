@@ -23,10 +23,7 @@ function Get-LogData {
     
     $data = Get-Content -Path $LogFile
 
-    if (!$StartTime) {
-        return $data
-    }
-    else {
+    if ($StartTime) {
         # Regular expression matching the lines where robocopy started
         $regex = "^.*Started : .*$"
 
@@ -57,7 +54,12 @@ function Get-LogData {
         }
 
         # Return all the data from the matched regex line to the end of the array
-        return $data[$startindex..$data.Length]
+        $data = $data[$startindex..$data.Length]
+    }
+
+    return $data -join "`n"
+}
+
     }
     }
 }
