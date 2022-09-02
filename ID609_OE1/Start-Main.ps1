@@ -33,4 +33,4 @@ Start-Process Powershell .\Start-LoggingFiles.ps1
 
 Start-Sleep -Seconds 1
 
-[System.Windows.MessageBox]::Show("Remember to start live mode in the file modifier applet, and start the SMTP server.")
+[System.Windows.MessageBox]::Show("Remember to start live mode in the file modifier applet, and start the SMTP server.") | Out-Null
