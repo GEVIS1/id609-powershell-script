@@ -14,11 +14,11 @@ function Get-LogData {
         [DateTime]
         $StartTime
     )
-    
+
     # Exit if LogFile does not exist
     if (!(Test-Path -Path $LogFile)) {
-    $errormsg = "Could not parse LogFile: $LogFile"
-    throw $errormsg
+        $errormsg = "Could not parse LogFile: $LogFile"
+        throw $errormsg
     }
     
     $data = Get-Content -Path $LogFile
