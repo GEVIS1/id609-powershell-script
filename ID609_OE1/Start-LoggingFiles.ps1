@@ -23,7 +23,7 @@ Import-Module ".\src\EventLog.psd1" -Force
 
 # Configuration variables
 $ever = ";;"
-$sleep = 60 # How many seconds between each loop
+$sleepseconds = 60
 $logdir = ".\logs\"
 $logfile = "log-$(Get-Date -Format "yyyy-MM-dd").txt"
 
@@ -45,5 +45,4 @@ $host.ui.RawUI.WindowTitle = "File logger script"
 for ($ever) {
     Get-LogData -Logfile "$logdir$logfile" -StartTime (Get-Date)
     New-EventLogMessage -Type Information -Message "Wrote some stuff to the event log!"
-    Start-Sleep -Seconds 60
-}
+    Start-Sleep -Seconds $sleepseconds
