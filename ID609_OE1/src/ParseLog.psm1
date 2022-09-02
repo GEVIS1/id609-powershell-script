@@ -21,7 +21,7 @@ function Get-LogData {
     throw $errormsg
     }
     
-    $data = Get-Content -Path $LogFile -Raw
+    $data = Get-Content -Path $LogFile
 
     if (!$StartTime) {
         Write-Host $data
