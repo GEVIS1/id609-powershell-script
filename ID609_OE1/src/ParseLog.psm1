@@ -9,26 +9,22 @@ function ConvertFrom-RobocopyLog {
         $LogData
     )
 
+    # Turn the LogData into an array for easier manipulation
     $data = $LogData -split "`n"
 
     # Extract all the lines with new files and deleted files (extra files)
     # Matching on a string[] will return a string[] where the match is true
     $data = $data -match "(\*EXTRA)|(New File)"
-
-    # $data
-    # throw "StopPls"
         
     # Loop for each found line
     ($data | ForEach-Object {
+        # Regex lines that have extra or new files and use capture groups to capture the operation, filetype and filename
         $_ -match "(?<Op>EXTRA|New) (?<Type>File|Dir).*\t(?<Name>[^\t\n]*$)" | Out-Null
-        # "Line: $_"
-        # "Matches.Type: $($Matches.Type)"
-        # "Matches.Name: $($Matches.Name)"
         if ($Matches.Op -contains "New") {
-            "CREATED " + $Matches.Type + " " + $Matches.Name 
+            "CREATED `t" + $Matches.Type + "`t" + $Matches.Name 
         }
         elseif ($Matches.Op -contains "EXTRA") { 
-            "DELETED " + $Matches.Type + " " + $Matches.Name 
+            "DELETED `t" + $Matches.Type + "`t" + $Matches.Name 
         }
     }) -join "`n" # Return one string with newlines
 }
