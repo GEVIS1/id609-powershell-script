@@ -15,7 +15,6 @@ Import-Module ".\src\EventLog.psd1" -Force
 $ever = ";;"
 $sleepseconds = 60
 $logdir = ".\logs\"
-$logfile = "log-$(Get-Date -Format "yyyy-MM-dd").txt"
 $readtoken = "<DATA LAST READ HERE>"
 
 # Create Event log source if it does not exist
@@ -29,6 +28,9 @@ $host.ui.RawUI.WindowTitle = "ID609_OE1 File logging script assignment"
 
 # This program is meant to run indefinitely, so wrap everything in a for loop that never ends.
 for ($ever) {
+
+    # Make sure we update the log file path so we follow day changes
+    $logfile = "log-$(Get-Date -Format "yyyy-MM-dd").txt"
 
     # Check if log file exists
     if (!(Test-Path -Path "$logdir$logfile")) {
