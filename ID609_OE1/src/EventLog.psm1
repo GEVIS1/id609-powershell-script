@@ -1,5 +1,3 @@
-
-
 $LogSource = "ID609FileLogger"
 
 function Test-EventLogSource {
