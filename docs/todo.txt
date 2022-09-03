@@ -9,3 +9,24 @@ https://evotec.xyz/sending-information-to-event-log-with-extended-fields-using-p
 1. Add -ErrorAction to applicable commands. Eg: -ErrorAction {Send-MailMessage <dwadwa>; New-EventLogMessage <derpyderp>}
 2. Add checks for robocopy script running, error if robocopy script isn't running.
 3. Add help comments above functions
+
+
+Issues: 
+1.
+It doesn't account for the saved start date being on a previous date. If it is, it will send an email about the rest of that date, and pick back up on the current time of the current day.
+This could be fixed by iterating every day up to the current day and emailing all the data. But this is out of scope of the assignment.
+
+2.
+The script doesn't account for both scripts reading the same log file at the same time. In some cases you could accidentally append the marker in the wrong place if the robocopy script writes before you write back after reading from the logging script.
+
+3.
+Timestamp locale issues..
+====================00======================
+Start time: 03/09/2022 21:18:27
+Iteration time: 09/03/2022 14:30:57
+Is start time earlier than this time? -1
+====================01======================
+Start time: 03/09/2022 21:18:27
+Iteration time: 09/03/2022 14:31:57
+Is start time earlier than this time? -1
+====================02======================
