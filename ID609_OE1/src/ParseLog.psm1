@@ -24,6 +24,7 @@ function Get-LogData {
     $data = Get-Content -Path $LogFile
 
     if ($StartTime) {
+                        Write-Host "Start time given! Looking for correct time."
         # Regular expression matching the lines where robocopy started
         $regex = "^.*Started : .*$"
 
@@ -47,14 +48,33 @@ function Get-LogData {
                 If the result of this comparison is -1, I.E. the current end time is older than the StartTime,
                 then the previous endtime is the one we care about, since we want the last data just before StartTime.
             #>
+            Write-Host "$($i.ToString().PadLeft(2,"0"))`: $([DateTime]($starttimes[$i] -split "^.{2}Started : ")[1])"
             if (($StartTime).CompareTo(([DateTime]($starttimes[$i] -split "^.{2}Started : ")[1])) -eq -1) {
                 # Get the index of that line in the string array
                 $startindex = $data.IndexOf($starttimes[$i - 1])
+                # Break here, so we don't overwrite the start index with any later entries.
+                                Write-Host "Found start line: $($starttimes[$i - 1]).`nBreaking!"
+                break
             }
         }
 
+        # If there is no start index, either the robocopy script is not running or something went wrong.
+        if (!$startindex) {
+            return $null
+        }
+
+        # Get array end index
+        $endindex = $data.Count - 1
+
+                    Write-Host "Start index: $startindex"
+                    Write-Host "End index: $endindex"
+                    Write-Host "Line at Start index: $($data[$startindex])"
+                    Write-Host "Last text line: $($data[$endindex - 1])"
+                    Write-Host "Wrote data to: ..\logs\output.txt"
+                    $data[$startindex..$endindex] > .\logs\output.txt    
+
         # Return all the data from the matched regex line to the end of the array
-        $data = $data[$startindex..$data.Length]
+        $data = $data[$startindex..$endindex]
     }
 
     return $data -join "`n"
@@ -81,7 +101,7 @@ function ConvertFrom-RobocopyLog {
     # throw "StopPls"
         
     # Loop for each found line
-    $data | ForEach-Object {
+    ($data | ForEach-Object {
         $_ -match "(?<Op>EXTRA|New) (?<Type>File|Dir).*\t(?<Name>[^\t\n]*$)" | Out-Null
         # "Line: $_"
         # "Matches.Type: $($Matches.Type)"
@@ -92,5 +112,5 @@ function ConvertFrom-RobocopyLog {
         elseif ($Matches.Op -contains "EXTRA") { 
             "DELETED " + $Matches.Type + " " + $Matches.Name 
         }
-    }
+    }) -join "`n" # Return one string with newlines
 }
