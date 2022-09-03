@@ -16,7 +16,7 @@ $ever = ";;"
 $sleepseconds = 60
 $logdir = ".\logs\"
 $logfile = "log-$(Get-Date -Format "yyyy-MM-dd").txt"
-$begin = $true
+$readtoken = "<DATA LAST READ HERE>"
 
 # Create Event log source if it does not exist
 if (!(Test-EventLogSource)) {
@@ -24,51 +24,57 @@ if (!(Test-EventLogSource)) {
     New-EventLogSource
 }
 
-if (!(Test-Path -Path "$logdir$logfile")) {
-    throw [System.IO.FileNotFoundException]"Could not find logfile. Is Robocopy running?"
-    # TODO: Write to event log
-}
-
 # Set window title
-$host.ui.RawUI.WindowTitle = "File logger script"
+$host.ui.RawUI.WindowTitle = "ID609_OE1 File logging script assignment"
 
 # This program is meant to run indefinitely, so wrap everything in a for loop that never ends.
 for ($ever) {
-    # If no starttime is set, we are in the first iteration of the loop, so read from lastdate.txt
-    if (!$starttime -and $begin) {
-        # If a lastdate file exists
-        if (Test-Path -Path $logdir\lastdate.txt) {
-            # Read it to $starttime
-            $starttime = Get-Content -Path $logdir\lastdate.txt
 
-            Write-Host "Loaded start time: $starttime"
-        } else {
-            # No lastdate found, use current time
-            $starttime = (Get-Date).AddMinutes(-1)
-        }
-        $begin = $false
-    } else {
-        # If no start time could be loaded, just start from now.
-        New-EventLogMessage -Type Information -Message "No lastdate.txt found. Starting logging from current time."
-        $starttime = (Get-Date).AddMinutes(-1)
-        $begin = $false
+    # Check if log file exists
+    if (!(Test-Path -Path "$logdir$logfile")) {
+        New-EventLogMessage -Type Error -Message "Could not find logfile: $logdir$logfile.`nIs Robocopy running?"
     }
 
-    Write-Host "Calling Get-LogData with starttime: $starttime"
-    $logdata = Get-LogData -Logfile "$logdir$logfile" -StartTime $starttime
+    # Get log file data
+    $filedata = Get-Content -Path "$logdir$logfile"
 
-    # If Get-LogData returns null, the data could not be read and we should not move the start time forward
-    if (!$logdata) {
-        New-EventLogMessage -Type Warning -Message "Could not find any log data after start time. Is the logger running?"
+    # Only grab data after $readtoken, we do this by getting the index of the token
+    $start = $filedata.IndexOf($($filedata | Select-String -Pattern "^$readtoken$"))
+    $end = $filedata.Count - 1
+
+    <# 
+        If no token was found ($start is -1 or $null), the file hasn't been read before, so let's read the entire file by setting start to 0.
+        Else remove token.
+    #>
+    if ($start -le 0) { 
+        $start = 0 
     } else {
-        $starttime = (Get-Date).AddMinutes(-1)
+        $filedata[$start] = ""
     }
     
-    $parsedData = ConvertFrom-RobocopyLog -LogData $logdata
-    New-EventLogMessage -Type Information -Message "$parsedData"
+    # We now have the index, so we can move the token to the bottom and write back to file
+    $filedata += $readtoken
+    Set-Content -Path "$logdir$logfile" -Value $filedata
 
-    # Write previous start time to logs so we can pick back up where we left if the program stops/restarts
-    New-Item -Path $logdir\lastdate.txt -ItemType File -Value $starttime -Force | Out-Null
+    # Extract only the bit we are interested in by ranging the array
+    $logdata = $filedata[$start..$end]
 
+    Add-Content -Path ".\logs\logdata.txt" -Force -Value $logdata | Out-Null # DEBUG
+    Add-Content -Path ".\logs\logdata.txt" -Force -Value "`nWrote at: $(Get-Date)`n" | Out-Null # DEBUG
+    
+    # Our data is in a string array but we need a single string, so join the strings with a newline character
+    $parsedData = ConvertFrom-RobocopyLog -LogData ($logdata -join "`n")
+
+    Add-Content -Path ".\logs\parsedData.txt" -Force -Value $parsedData | Out-Null # DEBUG
+    Add-Content -Path ".\logs\parsedData.txt" -Force -Value "`nWrote at: $(Get-Date)`n" | Out-Null # DEBUG
+
+    # Only log if $parsedData is not an empty string
+    if ($parsedData) {
+        New-EventLogMessage -Type Information -Message "$parsedData"
+        #Todo: email here
+    } else {
+        New-EventLogMessage -Type Information -Message "No new changes to report."
+    }
+    
     Start-Sleep -Seconds $sleepseconds
 }
