@@ -31,8 +31,12 @@ function Get-LogData {
         # Get all robocopy starting lines
         $starttimes = $data -match $regex
 
-        # Iterate the matched end times in reverse to find the date closest to and also before the start time
-        for ($i = $starttimes.Count - 1; $i -ge 0 ; $i--) {
+        Write-Host "Matches in starttimes: $($starttimes.Count)"
+
+        # Iterate the matched end times to find the date closest to and also before the start time
+        $regex2 = "^.{2}Started : "
+        for ($i = 0; $i -lt $starttimes.Count; $i++) {
+            $iterationtime = ([DateTime]($starttimes[$i] -split $regex2)[1])
             <# 
                 $date1 = [DateTime]"9999-00-00T00:00"
                 $date2 = [DateTime]"2000-00-00T00:00"
@@ -45,21 +49,26 @@ function Get-LogData {
             # This debug string is too handy to delete.
             #"$($i.ToString().PadLeft(2,"0"))`: $([DateTime]($starttimes[$i] -split "^.{3}Ended : ")[1])"
             <#  
-                If the result of this comparison is -1, I.E. the current end time is older than the StartTime,
+                If the result of this comparison is -1, I.E. the iteration time is older than the StartTime,
                 then the previous endtime is the one we care about, since we want the last data just before StartTime.
             #>
-            Write-Host "$($i.ToString().PadLeft(2,"0"))`: $([DateTime]($starttimes[$i] -split "^.{2}Started : ")[1])"
-            if (($StartTime).CompareTo(([DateTime]($starttimes[$i] -split "^.{2}Started : ")[1])) -eq -1) {
+            Write-Host "====================$($i.ToString().PadLeft(2,"0"))======================"
+            Write-Host "Start time: $starttime"
+            Write-Host "Iteration time: $iterationtime"
+            Write-Host "Is start time earlier than this time? $(($StartTime).CompareTo($iterationtime))"
+
+            if (($StartTime).CompareTo($iterationtime) -eq -1) {
                 # Get the index of that line in the string array
                 $startindex = $data.IndexOf($starttimes[$i - 1])
                 # Break here, so we don't overwrite the start index with any later entries.
-                                Write-Host "Found start line: $($starttimes[$i - 1]).`nBreaking!"
+                                Write-Host "Found start line!: $($starttimes[$i - 1]).`nBreaking!"
                 break
             }
         }
 
         # If there is no start index, either the robocopy script is not running or something went wrong.
-        if (!$startindex) {
+        if ($null -eq $startindex) {
+            Write-Host "It empty."
             return $null
         }
 
