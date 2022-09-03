@@ -30,7 +30,7 @@ CompanyName = 'Otago Polytechnic'
 Copyright = '(c) Steffen Geving. All rights reserved.'
 
 # Description of the functionality provided by this module
-Description = 'Provides functionality for parsing Robocopy log files.'
+Description = 'Provides functionality for writing to the event log.'
 
 # Minimum version of the PowerShell engine required by this module
 # PowerShellVersion = ''
