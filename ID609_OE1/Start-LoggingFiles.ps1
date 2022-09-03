@@ -71,7 +71,8 @@ for ($ever) {
     # Only log if $parsedData is not an empty string
     if ($parsedData) {
         New-EventLogMessage -Type Information -Message "$parsedData"
-        #Todo: email here
+        # Append <CR><LF>.<CR><LF> to appease email gods
+        $parsedData += "`r`n.`r`n"
     } else {
         New-EventLogMessage -Type Information -Message "No new changes to report."
     }
