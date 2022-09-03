@@ -8,7 +8,7 @@ if ((Get-Location) -Ne $PSScriptRoot) {
 
 Import-Module ".\src\ParseLog.psd1" -Force
 Import-Module ".\src\EventLog.psd1" -Force
-#Import-Module ".\src\SendEmail.psd1"
+Import-Module ".\src\SendEmail.psd1" -Force
 
 
 # Configuration variables
@@ -70,6 +70,8 @@ for ($ever) {
 
         # Append <CR><LF>.<CR><LF> to appease email gods
         $parsedData += "`r`n.`r`n"
+
+        Send-FileLogEmail -MessageBody "$parsedData"
     } else {
         New-EventLogMessage -Type Information -Message "No new changes to report."
     }
