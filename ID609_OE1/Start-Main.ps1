@@ -7,17 +7,6 @@
 	4. Start the main logging script.
 #>
 
-<#
-    Elevation check. This script should run as administrator.
-    Source: https://superuser.com/a/756696
-#>
-if (!([Security.Principal.WindowsPrincipal] `
-    [Security.Principal.WindowsIdentity]::GetCurrent() `
-    ).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-    throw "This script needs Adminstrator privileges."
-}
-
-
 <#  
     Make sure our path is set to the root of the script,
     so paths to modules and log files are correct.
