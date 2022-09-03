@@ -58,19 +58,14 @@ for ($ever) {
 
     # Extract only the bit we are interested in by ranging the array
     $logdata = $filedata[$start..$end]
-
-    Add-Content -Path ".\logs\logdata.txt" -Force -Value $logdata | Out-Null # DEBUG
-    Add-Content -Path ".\logs\logdata.txt" -Force -Value "`nWrote at: $(Get-Date)`n" | Out-Null # DEBUG
     
     # Our data is in a string array but we need a single string, so join the strings with a newline character
     $parsedData = ConvertFrom-RobocopyLog -LogData ($logdata -join "`n")
 
-    Add-Content -Path ".\logs\parsedData.txt" -Force -Value $parsedData | Out-Null # DEBUG
-    Add-Content -Path ".\logs\parsedData.txt" -Force -Value "`nWrote at: $(Get-Date)`n" | Out-Null # DEBUG
-
     # Only log if $parsedData is not an empty string
     if ($parsedData) {
         New-EventLogMessage -Type Information -Message "$parsedData"
+
         # Append <CR><LF>.<CR><LF> to appease email gods
         $parsedData += "`r`n.`r`n"
     } else {
