@@ -17,7 +17,12 @@ if ((Get-Location) -Ne $PSScriptRoot) {
 
 Start-Process -FilePath .\Start-FileModifier.lnk
 Start-Process -FilePath .\Start-MailServer.lnk
+<<<<<<< HEAD
 Start-Process -FilePath Powershell .\Start-Robocopy.ps1
 Start-Process -FilePath Powershell .\Start-LoggingFiles.ps1 -Verb RunAs
 
 Start-Sleep -Seconds 1
+=======
+Start-Process Powershell .\Start-Robocopy.ps1
+Start-Process Powershell .\Start-LoggingFiles.ps1
+>>>>>>> b4a680461bbfb6d0816f6768d5b809052f0472e5
