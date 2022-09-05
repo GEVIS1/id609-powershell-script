@@ -44,6 +44,8 @@ if (!(Test-EventLogSource)) {
 # Set window title
 $host.ui.RawUI.WindowTitle = "ID609_OE1 File logging script assignment"
 
+Write-Host "All checks ok. Starting logging."
+
 # This program is meant to run indefinitely, so wrap everything in a for loop that never ends.
 for ($ever) {
 
@@ -56,6 +58,7 @@ for ($ever) {
     }
 
     # Get log file data
+    Write-Host "Reading log data from: $logdir$logfile"
     $filedata = Get-Content -Path "$logdir$logfile"
 
     # Only grab data after $readtoken, we do this by getting the index of the token
@@ -66,14 +69,18 @@ for ($ever) {
         If no token was found ($start is -1 or $null), the file hasn't been read before, so let's read the entire file by setting start to 0.
         Else remove token.
     #>
-    if ($start -le 0) { 
+    if ($start -le 0) {
+        Write-Host "Could not find token, reading from start of file."
         $start = 0 
     } else {
+        Write-Host "Found token, stored index and removed token."
         $filedata[$start] = ""
     }
     
     # We now have the index, so we can move the token to the bottom and write back to file
+    Write-Host "Appended token to log file data."
     $filedata += $readtoken
+    Write-Host "Writing log file data back to original log file."
     Set-Content -Path "$logdir$logfile" -Value $filedata
 
     # Extract only the bit we are interested in by ranging the array
@@ -84,6 +91,7 @@ for ($ever) {
 
     # Only log if $parsedData is not an empty string
     if ($parsedData) {
+        Write-Host "Found changes. Writing to Event Log and Sending email."
         New-EventLogMessage -Type Information -Message "$parsedData"
 
         # Append <CR><LF>.<CR><LF> to appease email gods
@@ -91,8 +99,10 @@ for ($ever) {
 
         Send-FileLogEmail -MessageBody "$parsedData"
     } else {
+        Write-Host "No changes found."
         New-EventLogMessage -Type Information -Message "No new changes to report."
     }
     
+    Write-Host "All operations finished. Restarting in $sleepseconds seconds.`n`n"
     Start-Sleep -Seconds $sleepseconds
 }
