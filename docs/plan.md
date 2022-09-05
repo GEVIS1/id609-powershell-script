@@ -14,34 +14,34 @@ stateDiagram-v2
 
 ## `Start-RobocopyReport`
 The Start-RobocopyReport script will indefinitely run.
-On startup it will grab the timestamp from a stored file, or if it doesn't exist it will grab the current time.
-It will then intermittently check if an instance of robocopy is running and when it detects robocopy is not running it will trigger its functionality.
-When it triggers it will:
-1. Parse the [log file](../example/log.txt) matching the current day and check if there is a started string (E.G: `Started : Sunday, 21 August 2022 3:32:32 pm`) where the date is older than the stored timestamp.
-2. If it is then it will parse the rest of the log file.
-3. Then it will take the parsed data and email a report.
-4. Once the email has been sent it will store the ended timestamp (E.G: `Ended : Sunday, 21 August 2022 3:32:32 pm`) in memory and write it to file.
+On startup it will check if the necessary environment configurations are there. Log file existing, event viewer having the application type for the script etc..
+It will then intermittently check the log file for a token, if it does not find the token it will read the entire file and put the token at the end. If a token is found it will parse everything below it and move the token to the bottom of the file.
+
+Here is it's normal mode of operation:
+1. Parse the [log file](../example/log.txt) matching the current day and check if there is a token (E.G: `<DATA LAST READ HERE>`) in the log file.
+2. If it is there then it will parse the rest of the log file starting from its position.
+3. If it is not there, it will parse the entire log file and put the token at the end of the file.
+4. Then it will take the parsed data and extract all the changes.
+5. If there are file changes found in the parsed data it will send an email with the affected files, and log it in the event viewer.
+6. If there are no changes it will simply wait 60 seconds and repeat infinitely.
 
 ```mermaid
 stateDiagram-v2
-    state "Get timestamp" as s0
-    state "Check if Robocopy is running" as s1
-    state if_rc_running <<choice>>
+    state "Check configuration" as s0
+    state "Read log file" as s1
     [*] --> s0
     s0 --> s1
-    s1 --> if_rc_running
-    if_rc_running --> s1: is running
-    state "Compare timestamps" as s2
-    if_rc_running --> s2: is not running
-    state if_timestamp <<choice>>
-    s2 --> if_timestamp
-    if_timestamp --> s1: no change
+    state if_new_data <<choice>>
+    s1 --> if_new_data
+    if_new_data --> s3: New log data found
+    state "Wait 1 minute" as wait
+    if_new_data --> wait: No new log data found
+    wait --> s1
     state "Parse new log data" as s3
-    if_timestamp --> s3: change
     state "Send email" as s4
     s3 --> s4
-    state "Get timestamp" as s5
+    state "Move token" as s5
     s4 --> s5
-    s5 --> s1
+    s5 --> wait
 ```
 
