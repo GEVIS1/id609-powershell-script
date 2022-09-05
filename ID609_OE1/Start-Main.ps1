@@ -19,5 +19,3 @@ Start-Process -FilePath .\Start-FileModifier.lnk
 Start-Process -FilePath .\Start-MailServer.lnk
 Start-Process Powershell .\Start-Robocopy.ps1
 Start-Process Powershell .\Start-LoggingFiles.ps1
-
-Start-Sleep -Seconds 1
