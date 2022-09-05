@@ -1,5 +1,5 @@
-## `Robocopy`
-The robocopy script will open a terminal and run robocopy every minute, logging to a [log file](../example/log.txt) stamped with the current day.
+## `Start-Robocopy`
+The Start-Robocopy script will open a terminal and run robocopy every minute, logging to a [log file](../example/log.txt) stamped with the current day.
 Doing this will be an elegant way of having a new log file created every day. 
 It will also avoid the log file eventually becoming unwieldy and increasing parsing times significantly.
 
@@ -12,8 +12,8 @@ stateDiagram-v2
     s2 --> s1
 ```
 
-## `Start-RobocopyReport`
-The Start-RobocopyReport script will indefinitely run.
+## `Start-LoggingFiles`
+The Start-LoggingFiles script will indefinitely run.
 On startup it will check if the necessary environment configurations are there. Log file existing, event viewer having the application type for the script etc..
 It will then intermittently check the log file for a token, if it does not find the token it will read the entire file and put the token at the end. If a token is found it will parse everything below it and move the token to the bottom of the file.
 
