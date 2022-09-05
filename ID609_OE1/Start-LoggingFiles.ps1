@@ -6,6 +6,24 @@ if ((Get-Location) -Ne $PSScriptRoot) {
     Set-Location $PSScriptRoot
 }
 
+<# 
+    Check for eleveated privileges. 
+    These are necessary to create an Event Viewer Application log source.
+    If not elevated, try starting the program again as administrator.
+#>
+if (!(New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
+    Write-Host -NoNewLine "This script needs to run with elevated privileges, restarting in 3 seconds"
+
+    for ($i = 0; $i -lt 3; $i++) {
+        Start-Sleep -Seconds 1
+        Write-Host -NoNewLine "."
+    }
+
+    Start-Process -FilePath "Powershell" -ArgumentList "$PSScriptRoot\$($MyInvocation.MyCommand)" -Verb Runas
+    exit
+}
+
+
 Import-Module ".\src\ParseLog.psd1" -Force
 Import-Module ".\src\EventLog.psd1" -Force
 Import-Module ".\src\SendEmail.psd1" -Force
