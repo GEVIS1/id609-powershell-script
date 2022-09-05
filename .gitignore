@@ -11,3 +11,6 @@ ID609_OE1/Files_backup/
 # Don't ignore gitkeep files
 !ID609_OE1/Files/.gitkeep
 !ID609_OE1/logs/.gitkeep
+
+# Ignore the received-emails folder
+ID609_OE1/received-emails/
