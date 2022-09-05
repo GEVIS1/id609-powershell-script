@@ -97,7 +97,13 @@ for ($ever) {
         # Append <CR><LF>.<CR><LF> to appease email gods
         $parsedData += "`r`n.`r`n"
 
-        Send-FileLogEmail -MessageBody "$parsedData"
+        try {
+            Send-FileLogEmail -MessageBody "$parsedData"
+        }
+        catch {
+            Write-Warning "Could not send Email.. is the SMTP server running?"
+            New-EventLogMessage -Type Error -Message "Could not send Email.. is the SMTP server running?"
+        }
     } else {
         Write-Host "No changes found."
         New-EventLogMessage -Type Information -Message "No new changes to report."
